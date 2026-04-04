@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pack de figurinha do app</title>
+    <meta name="description" content="Dashboard premium para baixar o Pack de figurinha do app e tirar dúvidas com nossa Inteligência Artificial especializada.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="glass-background"></div>
+    <div class="app-container">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-gem neon-text"></i>
+                <h2>Pack de Figurinha<span> do App</span></h2>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-target="page-dashboard" data-title="Seu Dashboard" data-desc="Acesso ao Pack de figurinha do app.">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-target="page-downloads" data-title="Meus Downloads" data-desc="Baixe todos os seus arquivos aqui.">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Downloads</span>
+                </a>
+                <a href="#" class="nav-item" data-target="page-estrategia" data-title="Estratégias de Venda" data-desc="Aprenda a faturar com esse pack.">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                    <span>Estratégia <i class="fa-solid fa-lock" style="font-size: 10px; margin-left: 5px; color: #ef4444;"></i></span>
+                </a>
+                <a href="#" class="nav-item" id="nav-ia">
+                    <i class="fa-solid fa-robot"></i>
+                    <span>Assistente IA</span>
+                </a>
+                <a href="#" class="nav-item" data-target="page-ajuda" data-title="Ajuda e Suporte" data-desc="Encontre as respostas para suas dúvidas.">
+                    <i class="fa-solid fa-circle-question"></i>
+                    <span>Ajuda</span>
+                </a>
+            </nav>
+            
+            <div class="user-profile">
+                <div class="avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="user-info">
+                    <p class="name">Cliente Premium</p>
+                    <p class="status">Acesso Vitalício</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="welcome-text">
+                    <h1 id="header-title">Seu Dashboard</h1>
+                    <p id="header-desc">Acesso ao Pack de figurinha do app.</p>
+                </div>
+            </header>
+
+            <div id="pages-container">
+                <!-- Dashboard -->
+                <section id="page-dashboard" class="page-section dashboard-grid">
+                    <!-- Welcome/Stats Card -->
+                    <div class="card glass-card welcome-card">
+                        <div class="card-content">
+                            <h3>Acesso Liberado! 🎉</h3>
+                            <p>Obrigado por adquirir o Pack de figurinha do app. Seus arquivos estão prontos para download.</p>
+                            
+                            <div class="stats-row">
+                                <div class="stat-box">
+                                    <i class="fa-solid fa-images"></i>
+                                    <div>
+                                        <p class="stat-val">15.000+</p>
+                                        <p class="stat-label">Figurinhas</p>
+                                    </div>
+                                </div>
+                                <div class="stat-box">
+                                    <i class="fa-solid fa-file-zipper"></i>
+                                    <div>
+                                        <p class="stat-val">Alta Resolução</p>
+                                        <p class="stat-label">Qualidade Premium</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Downloads -->
+                <section id="page-downloads" class="page-section dashboard-grid hidden">
+                    <div class="card glass-card download-card">
+                        <h3>Baixar Arquivos</h3>
+                        <p class="subtitle">Faça o download do arquivo compactado (.zip) com todo o conteúdo.</p>
+                        
+                        <div class="file-info-box">
+                            <i class="fa-solid fa-file-archive file-icon"></i>
+                            <div class="file-details">
+                                <p class="filename">Pack_de_figurinha_do_app.zip</p>
+                                <p class="filesize">Tamanho estimado: 4.2 GB</p>
+                            </div>
+                        </div>
+                        
+                        <a href="https://www.transfernow.net/dl/Packdefigurinha" target="_blank" class="btn-primary" id="download-btn" style="text-decoration: none;">
+                            <i class="fa-solid fa-cloud-arrow-down"></i>
+                            Iniciar Download
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Estratégias (Locked) -->
+                <section id="page-estrategia" class="page-section dashboard-grid hidden">
+                    <div class="card glass-card" style="border-color: #ef4444; background: rgba(239, 68, 68, 0.05); grid-column: 1 / -1;">
+                        <div style="text-align: center; padding: 60px 0;">
+                            <i class="fa-solid fa-lock" style="font-size: 64px; color: #ef4444; margin-bottom: 24px;"></i>
+                            <h3 style="color: #ef4444; font-size: 28px; margin-bottom: 12px;">Acesso Negado</h3>
+                            <p style="color: var(--text-secondary); max-width: 400px; margin: 0 auto; font-size: 16px;">
+                                O módulo <strong>"Saiba como ter vendas com essas figurinhas"</strong> será liberado <strong>10 dias após a compra</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Ajuda -->
+                <section id="page-ajuda" class="page-section dashboard-grid hidden">
+                    <div class="card glass-card">
+                        <h3>Precisa de ajuda?</h3>
+                        <p style="color: var(--text-secondary); margin-top: 10px;">
+                            Utilize nossa Inteligência Artificial localizada no canto inferior direito para tirar dúvidas imediatas sobre o funcionamento e uso do pack!
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+        <!-- Floating Chat Interface -->
+        <div class="chat-widget">
+            <button class="chat-toggle-btn" id="chat-toggle">
+                <i class="fa-solid fa-message"></i>
+                <span class="chat-badge">IA</span>
+            </button>
+            
+            <div class="chat-window hidden" id="chat-window">
+                <div class="chat-header">
+                    <div class="ai-info">
+                        <div class="ai-avatar"><i class="fa-solid fa-robot"></i></div>
+                        <div>
+                            <h4>Assistente Groq</h4>
+                            <p>Especialista em Figurinhas</p>
+                        </div>
+                    </div>
+                    <button class="close-chat-btn" id="close-chat"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message ai-message">
+                        <div class="msg-content">Olá! Sou o assistente de IA focado no pack de 15 mil figurinhas. Como posso ajudá-lo hoje?</div>
+                    </div>
+                </div>
+                
+                <div class="chat-input-area">
+                    <div id="api-key-warning" class="api-warning">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        API Key do Groq necessária <a href="#" id="setup-key-btn">Configurar</a>
+                    </div>
+                    <form id="chat-form">
+                        <input type="text" id="chat-input" placeholder="Digite sua pergunta..." autocomplete="off" disabled>
+                        <button type="submit" id="send-msg-btn" disabled><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- API Key Modal -->
+    <div class="modal hidden" id="api-key-modal">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h3>Configurar Groq API</h3>
+                <button id="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Para usar a Inteligência Artificial, insira sua chave da API do Groq abaixo. Ela ficará salva apenas no seu navegador localmente.</p>
+                <input type="password" id="api-key-input" class="modern-input" placeholder="gsk_xxxxxxxxxxxxxxx">
+                <button class="btn-primary" id="save-key-btn">Salvar Chave</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./app.js"></script>
+</body>
+</html>
