@@ -50,6 +50,10 @@
                     <i class="fa-brands fa-canva"></i>
                     <span>Packs Canva</span>
                 </a>
+                <a href="#" class="nav-item" data-target="page-figurinhas-ia" data-title="Faça suas figurinhas personalizadas com nossa IA" data-desc="Figurinhas para conteudo de academia, para trabalho e muito mais">
+                    <i class="fa-solid fa-face-smile-wink"></i>
+                    <span>Criar Figurinhas</span>
+                </a>
                 <a href="#" class="nav-item" id="nav-ia">
                     <i class="fa-solid fa-robot"></i>
                     <span>Assistente IA</span>
@@ -228,6 +232,33 @@
                             <i class="fa-solid fa-up-right-from-square"></i>
                             Acessar Modelos no Canva
                         </a>
+                    </div>
+                </section>
+
+                <!-- Figurinhas IA -->
+                <section id="page-figurinhas-ia" class="page-section dashboard-grid hidden">
+                    <div class="card glass-card script-generator-card">
+                        <div class="ai-badge" style="background: rgba(236, 72, 153, 0.2); color: #ec4899;"><i class="fa-solid fa-face-smile-wink"></i> IA Figurinhas</div>
+                        <h3>Faça suas figurinhas personalizadas com nossa IA</h3>
+                        <p class="subtitle">Figurinhas para conteudo de academia, para trabalho e muito mais</p>
+                        
+                        <div class="generator-container">
+                            <div class="input-group">
+                                <label for="figurinhas-context">Qual o contexto ou ideia para a figurinha?</label>
+                                <input type="text" id="figurinhas-context" placeholder="Ex: Academia, Trabalho, Humor, Foco...">
+                            </div>
+                            <button id="generate-figurinhas-btn" class="btn-primary" style="background: linear-gradient(135deg, #ec4899, #f43f5e);">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i> Gerar Figurinha
+                            </button>
+                        </div>
+                        
+                        <div id="figurinhas-result-container" class="result-container hidden">
+                            <div class="result-header">
+                                <span>Idéia para sua Figurinha:</span>
+                                <button class="copy-btn" data-target="figurinhas-result"><i class="fa-regular fa-copy"></i> Copiar</button>
+                            </div>
+                            <div id="figurinhas-result" class="result-box"></div>
+                        </div>
                     </div>
                 </section>
             </div>

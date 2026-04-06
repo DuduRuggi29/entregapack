@@ -211,6 +211,11 @@ Seja sempre muito educado, profissional e use termos animadores. O arquivo é de
     const storiesResultContainer = document.getElementById('stories-result-container');
     const storiesResultBox = document.getElementById('stories-result');
 
+    const generateFigurinhasBtn = document.getElementById('generate-figurinhas-btn');
+    const figurinhasContextInput = document.getElementById('figurinhas-context');
+    const figurinhasResultContainer = document.getElementById('figurinhas-result-container');
+    const figurinhasResultBox = document.getElementById('figurinhas-result');
+
     const PROMPTS = {
         vendas: `Você é um copywriter de elite especializado em Instagram. 
 Seu objetivo é criar um SCRIPT DE VENDA IMPACTANTE para o produto/serviço fornecido.
@@ -229,7 +234,15 @@ Story 2: Conteúdo de valor/Dica rápida.
 Story 3: Engajamento (Enquete/Caixinha de perguntas).
 Story 4: Conexão/Bastidores.
 Story 5: CTA para o direct ou link.
-Forneça o texto exato para cada story e sugestões de elementos visuais.`
+Forneça o texto exato para cada story e sugestões de elementos visuais.`,
+        
+        figurinhas: `Você é um diretor de arte e criador de conteúdo especializado em stickers/figurinhas para WhatsApp e redes sociais.
+Seu objetivo é criar ideias ou descrições detalhadas de figurinhas personalizadas baseadas no contexto fornecido (ex: academia, trabalho, foco).
+A resposta deve incluir:
+1. Uma descrição visual detalhada de como a figurinha se parece (Personagem animado/real, Expressão facial forte, Elementos visuais como pesos de academia, café, agenda, etc).
+2. O texto/frase curta e de alto impacto que vai acompanhar a figurinha (se aplicável).
+3. Sugestões de momentos durante a conversa no WhatsApp/Stories para usar a figurinha.
+Use emojis apropriados na sua resposta para enriquecer a experiência.`
     };
 
     async function generateScript(type, input, resultBox, container, btn) {
@@ -289,6 +302,12 @@ Forneça o texto exato para cada story e sugestões de elementos visuais.`
     generateStoriesBtn.addEventListener('click', () => {
         generateScript('stories', storiesTopicInput.value, storiesResultBox, storiesResultContainer, generateStoriesBtn);
     });
+
+    if (generateFigurinhasBtn) {
+        generateFigurinhasBtn.addEventListener('click', () => {
+            generateScript('figurinhas', figurinhasContextInput.value, figurinhasResultBox, figurinhasResultContainer, generateFigurinhasBtn);
+        });
+    }
 
     // --- Copy Functionality ---
     document.querySelectorAll('.copy-btn').forEach(btn => {
