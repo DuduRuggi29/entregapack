@@ -1,0 +1,11 @@
+{
+  "name": "entregapack",
+  "version": "1.0.0",
+  "description": "Dashboard para Pack de figurinhas",
+  "scripts": {
+    "start": "serve ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
