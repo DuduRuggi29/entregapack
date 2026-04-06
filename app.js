@@ -199,6 +199,116 @@ Seja sempre muito educado, profissional e use termos animadores. O arquivo é de
         callGroqAPI(msg);
     });
 
+    // --- Specialized AI Script Generation ---
+
+    const generateVendasBtn = document.getElementById('generate-vendas-btn');
+    const vendasProductInput = document.getElementById('vendas-product');
+    const vendasResultContainer = document.getElementById('vendas-result-container');
+    const vendasResultBox = document.getElementById('vendas-result');
+
+    const generateStoriesBtn = document.getElementById('generate-stories-btn');
+    const storiesTopicInput = document.getElementById('stories-topic');
+    const storiesResultContainer = document.getElementById('stories-result-container');
+    const storiesResultBox = document.getElementById('stories-result');
+
+    const PROMPTS = {
+        vendas: `Você é um copywriter de elite especializado em Instagram. 
+Seu objetivo é criar um SCRIPT DE VENDA IMPACTANTE para o produto/serviço fornecido.
+O script deve ter:
+1. Gancho (Hook) forte nos primeiros 3 segundos.
+2. Identificação da dor ou desejo.
+3. Apresentação da solução (o produto).
+4. Chamada para ação (CTA) clara.
+Use emojis, quebras de linha e uma linguagem altamente persuasiva.`,
+        
+        stories: `Você é um estrategista de conteúdo para Instagram focado em engajamento e SEO.
+Seu objetivo é criar uma SEQUÊNCIA DE 5 STORIES sobre o tema fornecido.
+A sequência deve seguir:
+Story 1: Gancho de curiosidade (SEO: Use palavras-chave no texto).
+Story 2: Conteúdo de valor/Dica rápida.
+Story 3: Engajamento (Enquete/Caixinha de perguntas).
+Story 4: Conexão/Bastidores.
+Story 5: CTA para o direct ou link.
+Forneça o texto exato para cada story e sugestões de elementos visuais.`
+    };
+
+    async function generateScript(type, input, resultBox, container, btn) {
+        if (!input.trim()) {
+            alert('Por favor, digite um tema ou produto.');
+            return;
+        }
+
+        const apiKey = localStorage.getItem(GROQ_API_KEY_STORAGE);
+        if (!apiKey) {
+            apiKeyModal.classList.remove('hidden');
+            return;
+        }
+
+        // UI Feedback
+        const originalBtnText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Gerando...';
+        container.classList.remove('hidden');
+        resultBox.textContent = 'Aguarde, a IA está criando sua estratégia...';
+
+        try {
+            const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${apiKey}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    model: 'llama-3.1-8b-instant',
+                    messages: [
+                        { role: 'system', content: PROMPTS[type] },
+                        { role: 'user', content: `O tema/produto é: ${input}` }
+                    ],
+                    temperature: 0.8,
+                })
+            });
+
+            if (!response.ok) throw new Error('Erro na API');
+
+            const data = await response.json();
+            const content = data.choices[0].message.content;
+            
+            resultBox.textContent = content;
+        } catch (error) {
+            resultBox.textContent = 'Erro ao gerar script. Verifique sua conexão ou chave API.';
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = originalBtnText;
+        }
+    }
+
+    generateVendasBtn.addEventListener('click', () => {
+        generateScript('vendas', vendasProductInput.value, vendasResultBox, vendasResultContainer, generateVendasBtn);
+    });
+
+    generateStoriesBtn.addEventListener('click', () => {
+        generateScript('stories', storiesTopicInput.value, storiesResultBox, storiesResultContainer, generateStoriesBtn);
+    });
+
+    // --- Copy Functionality ---
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetId = btn.dataset.target;
+            const textToCopy = document.getElementById(targetId).textContent;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalContent = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copiado!';
+                btn.style.color = '#10b981';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                    btn.style.color = '';
+                }, 2000);
+            });
+        });
+    });
+
     // Setup initial state
     checkApiKey();
 });

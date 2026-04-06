@@ -38,6 +38,18 @@
                     <i class="fa-solid fa-hand-holding-dollar"></i>
                     <span>Estratégia <i class="fa-solid fa-lock" style="font-size: 10px; margin-left: 5px; color: #ef4444;"></i></span>
                 </a>
+                <a href="#" class="nav-item" data-target="page-scripts-vendas" data-title="Scripts de Vendas" data-desc="Gere scripts de vendas impactantes com nossa IA.">
+                    <i class="fa-solid fa-money-bill-trend-up"></i>
+                    <span>Scripts de Vendas</span>
+                </a>
+                <a href="#" class="nav-item" data-target="page-scripts-stories" data-title="Scripts de Stories" data-desc="Gere stories que engajam e vendem com foco em SEO.">
+                    <i class="fa-solid fa-rectangle-ad"></i>
+                    <span>Scripts de Stories</span>
+                </a>
+                <a href="#" class="nav-item" data-target="page-packs-canva" data-title="Packs Prontos Canva" data-desc="Acesse seus modelos de post prontos para o Canva.">
+                    <i class="fa-brands fa-canva"></i>
+                    <span>Packs Canva</span>
+                </a>
                 <a href="#" class="nav-item" id="nav-ia">
                     <i class="fa-solid fa-robot"></i>
                     <span>Assistente IA</span>
@@ -138,6 +150,84 @@
                         <p style="color: var(--text-secondary); margin-top: 10px;">
                             Utilize nossa Inteligência Artificial localizada no canto inferior direito para tirar dúvidas imediatas sobre o funcionamento e uso do pack!
                         </p>
+                    </div>
+                </section>
+
+                <!-- Scripts de Vendas -->
+                <section id="page-scripts-vendas" class="page-section dashboard-grid hidden">
+                    <div class="card glass-card script-generator-card">
+                        <div class="ai-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> IA Vendas</div>
+                        <h3>Gerador de Script de Vendas Impactante</h3>
+                        <p class="subtitle">Scripts poderosos focados em conversão direta para Instagram.</p>
+                        
+                        <div class="generator-container">
+                            <div class="input-group">
+                                <label for="vendas-product">O que você está vendendo?</label>
+                                <input type="text" id="vendas-product" placeholder="Ex: Curso de marketing, Mentoria, Serviço de design...">
+                            </div>
+                            <button id="generate-vendas-btn" class="btn-primary">
+                                <i class="fa-solid fa-bolt"></i> Gerar Script Poderoso
+                            </button>
+                        </div>
+                        
+                        <div id="vendas-result-container" class="result-container hidden">
+                            <div class="result-header">
+                                <span>Seu Script Gerado:</span>
+                                <button class="copy-btn" data-target="vendas-result"><i class="fa-regular fa-copy"></i> Copiar</button>
+                            </div>
+                            <div id="vendas-result" class="result-box"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Scripts de Stories -->
+                <section id="page-scripts-stories" class="page-section dashboard-grid hidden">
+                    <div class="card glass-card script-generator-card">
+                        <div class="ai-badge" style="background: rgba(59, 130, 246, 0.2); color: var(--accent-secondary);"><i class="fa-solid fa-hashtag"></i> IA Stories</div>
+                        <h3>Scripts de Stories para Engajamento</h3>
+                        <p class="subtitle">Scripts focados em SEO e retenção para o seu Instagram.</p>
+                        
+                        <div class="generator-container">
+                            <div class="input-group">
+                                <label for="stories-topic">Qual o tema dos stories?</label>
+                                <input type="text" id="stories-topic" placeholder="Ex: Bastidores, Dica do dia, Quebra de objeção...">
+                            </div>
+                            <button id="generate-stories-btn" class="btn-primary" style="background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));">
+                                <i class="fa-solid fa-fire"></i> Gerar Sequência de Stories
+                            </button>
+                        </div>
+                        
+                        <div id="stories-result-container" class="result-container hidden">
+                            <div class="result-header">
+                                <span>Sua Sequência de Stories:</span>
+                                <button class="copy-btn" data-target="stories-result"><i class="fa-regular fa-copy"></i> Copiar</button>
+                            </div>
+                            <div id="stories-result" class="result-box"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Packs Canva -->
+                <section id="page-packs-canva" class="page-section dashboard-grid hidden">
+                    <div class="card glass-card">
+                        <div class="canva-logo-box">
+                            <i class="fa-brands fa-canva"></i>
+                        </div>
+                        <h3>Packs Prontos do Canva</h3>
+                        <p class="subtitle">Acesse e baixe seus modelos de post de alta conversão.</p>
+                        
+                        <div class="file-info-box" style="background: rgba(139, 92, 246, 0.05); border-color: rgba(139, 92, 246, 0.3);">
+                            <i class="fa-solid fa-file-pdf file-icon" style="color: #ef4444;"></i>
+                            <div class="file-details">
+                                <p class="filename">Modelos_de_post_para_Instagram.pdf</p>
+                                <p class="filesize">Arquivo PDF com links diretos para o Canva</p>
+                            </div>
+                        </div>
+                        
+                        <a href="./Modelos_de_post_para_Instagram.pdf" target="_blank" class="btn-primary">
+                            <i class="fa-solid fa-up-right-from-square"></i>
+                            Acessar Modelos no Canva
+                        </a>
                     </div>
                 </section>
             </div>
