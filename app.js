@@ -295,7 +295,17 @@ DO NOT output any conversational text, greetings, emojis, or explanations. ONLY 
                         <a href="${imageUrl}" download="figurinha.png" target="_blank" class="btn-primary" style="display: inline-block; width: auto; padding: 10px 20px; font-size: 14px; text-decoration: none;">
                             <i class="fa-solid fa-download"></i> Abrir / Salvar Imagem
                         </a>
-                        <p style="font-size: 12px; color: var(--text-secondary); margin-top: 10px;">Para salvar: clique no botão, e quando a imagem abrir, clique com botão direito e "Salvar imagem".</p>
+                        <div style="margin-top: 20px; padding: 15px; background: rgba(59, 130, 246, 0.1); border-radius: 10px; border: 1px solid rgba(59, 130, 246, 0.2); text-align: left;">
+                            <p style="font-size: 14px; color: #fff; margin-bottom: 8px; font-weight: 600;">
+                                <i class="fa-solid fa-scissors" style="color: var(--accent-secondary); margin-right: 8px;"></i> Como remover o fundo:
+                            </p>
+                            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
+                                Para transformar em figurinha profissional sem fundo, salve a imagem acima e envie para o site <b>remove.bg</b>. É instantâneo e gratuito!
+                            </p>
+                            <a href="https://www.remove.bg/pt-br" target="_blank" style="display: inline-block; margin-top: 10px; color: var(--accent-secondary); font-size: 13px; text-decoration: none; font-weight: 600;">
+                                Acessar remove.bg <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 10px; margin-left: 4px;"></i>
+                            </a>
+                        </div>
                     </div>
                 `;
             } else {
