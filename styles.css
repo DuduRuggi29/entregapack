@@ -641,51 +641,57 @@ body {
         width: 100%;
         border-right: none;
         border-bottom: 1px solid var(--glass-border);
-        padding: 12px 16px;
-        flex-direction: row;
+        padding: 20px 0 0 0;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
         gap: 16px;
+        background: var(--bg-dark);
+        z-index: 10;
     }
     
     .logo {
         margin-bottom: 0;
-        font-size: 20px;
+        font-size: 24px;
     }
     
-    .logo span, .user-profile, .nav-item span {
+    .logo span, .user-profile {
         display: none;
     }
     
     .nav-menu {
+        width: 100%;
         flex-direction: row;
-        flex: 1;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
-        gap: 8px;
-        padding-bottom: 4px;
+        gap: 12px;
+        padding: 0 16px 16px 16px;
         justify-content: flex-start;
+        align-items: center;
     }
     
     /* Esconder a barra de rolagem mas manter a funcionalidade */
     .nav-menu::-webkit-scrollbar {
         height: 0px; 
+        background: transparent;
     }
     
     .nav-item {
-        padding: 10px;
-        min-width: 44px;
+        padding: 8px 16px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
+        white-space: nowrap;
+        font-size: 14px;
         justify-content: center;
     }
 
     .nav-item.active {
-        border-left: none;
-        border-bottom: 3px solid var(--accent-primary);
-        background: linear-gradient(0deg, rgba(139, 92, 246, 0.15) 0%, transparent 100%);
+        border: 1px solid var(--accent-primary);
+        background: rgba(139, 92, 246, 0.2);
     }
     
     .main-content {
-        padding: 16px;
+        padding: 20px 16px;
     }
 
     .welcome-text h1 {
