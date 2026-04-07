@@ -236,13 +236,10 @@ Story 4: Conexão/Bastidores.
 Story 5: CTA para o direct ou link.
 Forneça o texto exato para cada story e sugestões de elementos visuais.`,
         
-        figurinhas: `Você é um diretor de arte e criador de conteúdo especializado em stickers/figurinhas para WhatsApp e redes sociais.
-Seu objetivo é criar ideias ou descrições detalhadas de figurinhas personalizadas baseadas no contexto fornecido (ex: academia, trabalho, foco).
-A resposta deve incluir:
-1. Uma descrição visual detalhada de como a figurinha se parece (Personagem animado/real, Expressão facial forte, Elementos visuais como pesos de academia, café, agenda, etc).
-2. O texto/frase curta e de alto impacto que vai acompanhar a figurinha (se aplicável).
-3. Sugestões de momentos durante a conversa no WhatsApp/Stories para usar a figurinha.
-Use emojis apropriados na sua resposta para enriquecer a experiência.`
+        figurinhas: `You are an expert AI image prompt engineer. The user will give you a context or idea for a sticker.
+Your job is to generate ONLY a highly detailed, descriptive text-to-image prompt IN ENGLISH.
+It MUST include these keywords to ensure it looks like a WhatsApp sticker: "vector illustration, 2d flat, sticker art design, bold outlines, thick white border, die cut, simple solid background".
+DO NOT output any conversational text, greetings, emojis, or explanations. ONLY return the English prompt itself.`
     };
 
     async function generateScript(type, input, resultBox, container, btn) {
@@ -284,9 +281,26 @@ Use emojis apropriados na sua resposta para enriquecer a experiência.`
             if (!response.ok) throw new Error('Erro na API');
 
             const data = await response.json();
-            const content = data.choices[0].message.content;
+            const content = data.choices[0].message.content.trim();
             
-            resultBox.textContent = content;
+            if (type === 'figurinhas') {
+                const seed = Math.floor(Math.random() * 1000000);
+                const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(content)}?width=512&height=512&nologo=true&seed=${seed}`;
+                
+                resultBox.innerHTML = `
+                    <div style="text-align: center; margin-bottom: 16px;">
+                        <img src="${imageUrl}" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); background-color: white;" alt="Figurinha gerada">
+                    </div>
+                    <div style="text-align: center;">
+                        <a href="${imageUrl}" download="figurinha.png" target="_blank" class="btn-primary" style="display: inline-block; width: auto; padding: 10px 20px; font-size: 14px; text-decoration: none;">
+                            <i class="fa-solid fa-download"></i> Abrir / Salvar Imagem
+                        </a>
+                        <p style="font-size: 12px; color: var(--text-secondary); margin-top: 10px;">Para salvar: clique no botão, e quando a imagem abrir, clique com botão direito e "Salvar imagem".</p>
+                    </div>
+                `;
+            } else {
+                resultBox.textContent = content;
+            }
         } catch (error) {
             resultBox.textContent = 'Erro ao gerar script. Verifique sua conexão ou chave API.';
         } finally {
