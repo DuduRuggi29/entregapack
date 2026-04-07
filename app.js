@@ -236,13 +236,15 @@ Story 4: Conexão/Bastidores.
 Story 5: CTA para o direct ou link.
 Forneça o texto exato para cada story e sugestões de elementos visuais.`,
         
-        figurinhas: `Você é um especialista em criação de prompts para IA de imagens. O usuário vai pedir uma figurinha, muitas vezes contendo uma FRASE ESPECÍFICA em português.
-A sua ÚNICA função é traduzir a ideia visual para INGLÊS, MAS MANTER A FRASE EM PORTUGUÊS EXATAMENTE COMO O USUÁRIO PEDIU, entre aspas, explicitando que deve estar escrita na imagem.
-Exemplo prático: se o usuário pedir 'figurinha de um gato tomando café escrito "Bom dia vida"', seu prompt deve ser: A cute cat drinking coffee, featuring the text "Bom dia vida" written in bold typography, vector illustration, 2d flat, sticker art design, thick white border, die cut, solid background.
-REGRAS CRÍTICAS:
-1. Mantenha a frase/texto do usuário SEMPRE em Português e entre aspas com a instrução 'featuring the text "..."'.
-2. SEMPRE adicione no final: "vector graphic, sticker art, simple flat design, bold outlines, thick white border, die cut, plain background".
-3. RETORNE APENAS O PROMPT. Nenhuma palavra a mais, sem saudações.`
+        figurinhas: `Você é um engenheiro avançado de prompts para o modelo de geração de imagem FLUX. O usuário enviará uma ideia para figurinha ou uma FRASE.
+Sua missão é gerar APENAS UM PROMPT em INGLÊS que garanta 100% de precisão na escrita (sem erros ortográficos).
+REGRA DE TEXTO (CRÍTICA): O modelo FLUX gera textos perfeitos SE você usar esta estrutura exata de Typography.
+Exemplo de formato OBRIGATÓRIO: A sticker of a smiling cat. Typography text: "FRASE DO USUÁRIO" written in large, bold, clear letters. Vector illustration, die-cut, thick white border, white background.
+
+INSTRUÇÕES FINAIS:
+1. Se o usuário fornecer uma frase (em português), coloque-a isolada e com a escrita idêntica entre aspas no prompt inglês.
+2. Adicione os comandos para figurinha padrão: vector illustration, die-cut, thick white border, clean background.
+3. NUNCA adicione mais nenhuma explicação, apenas devolva o prompt em inglês.`
     };
 
     async function generateScript(type, input, resultBox, container, btn) {
