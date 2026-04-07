@@ -236,10 +236,13 @@ Story 4: Conexão/Bastidores.
 Story 5: CTA para o direct ou link.
 Forneça o texto exato para cada story e sugestões de elementos visuais.`,
         
-        figurinhas: `You are an expert AI image prompt engineer. The user will give you a context or idea for a sticker.
-Your job is to generate ONLY a highly detailed, descriptive text-to-image prompt IN ENGLISH.
-It MUST include these keywords to ensure it looks like a WhatsApp sticker: "vector illustration, 2d flat, sticker art design, bold outlines, thick white border, die cut, simple solid background".
-DO NOT output any conversational text, greetings, emojis, or explanations. ONLY return the English prompt itself.`
+        figurinhas: `Você é um especialista em criação de prompts para IA de imagens. O usuário vai pedir uma figurinha, muitas vezes contendo uma FRASE ESPECÍFICA em português.
+A sua ÚNICA função é traduzir a ideia visual para INGLÊS, MAS MANTER A FRASE EM PORTUGUÊS EXATAMENTE COMO O USUÁRIO PEDIU, entre aspas, explicitando que deve estar escrita na imagem.
+Exemplo prático: se o usuário pedir 'figurinha de um gato tomando café escrito "Bom dia vida"', seu prompt deve ser: A cute cat drinking coffee, featuring the text "Bom dia vida" written in bold typography, vector illustration, 2d flat, sticker art design, thick white border, die cut, solid background.
+REGRAS CRÍTICAS:
+1. Mantenha a frase/texto do usuário SEMPRE em Português e entre aspas com a instrução 'featuring the text "..."'.
+2. SEMPRE adicione no final: "vector graphic, sticker art, simple flat design, bold outlines, thick white border, die cut, plain background".
+3. RETORNE APENAS O PROMPT. Nenhuma palavra a mais, sem saudações.`
     };
 
     async function generateScript(type, input, resultBox, container, btn) {
@@ -285,7 +288,7 @@ DO NOT output any conversational text, greetings, emojis, or explanations. ONLY 
             
             if (type === 'figurinhas') {
                 const seed = Math.floor(Math.random() * 1000000);
-                const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(content)}?width=512&height=512&nologo=true&seed=${seed}`;
+                const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(content)}?width=512&height=512&nologo=true&model=flux&seed=${seed}`;
                 
                 resultBox.innerHTML = `
                     <div style="text-align: center; margin-bottom: 16px;">
